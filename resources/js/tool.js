@@ -1,9 +1,3 @@
-Nova.booting((Vue, router, store) => {
-    router.addRoutes([
-        {
-            name: 'nova-passport-manager',
-            path: '/nova-passport-manager',
-            component: require('./components/Tool'),
-        },
-    ])
+Nova.booting((Vue, store) => {
+    Vue.component("NovaPassportManager", require('./components/Tool').default)
 })
