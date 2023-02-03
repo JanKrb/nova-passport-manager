@@ -2,6 +2,8 @@
 
 namespace GeneaLabs\NovaPassportManager;
 
+use Illuminate\Http\Request;
+use Laravel\Nova\Menu\MenuSection;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
 
@@ -19,12 +21,12 @@ class NovaPassportManager extends Tool
     }
 
     /**
-     * Build the view that renders the navigation links for the tool.
-     *
-     * @return \Illuminate\View\View
+     * @inheritDoc
      */
-    public function renderNavigation()
+    public function menu(Request $request)
     {
-        return view('nova-passport-manager::navigation');
+        return MenuSection::make('OAuth2')
+            ->path('nova-passport-manager')
+            ->icon('shield-check');
     }
 }
